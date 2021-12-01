@@ -2,7 +2,7 @@ const mainContainer = document.querySelector('[data-main-container]')
 const emailForm = document.querySelector('[data-gen-emails]')
 const inputAmount = document.querySelector('[data-input-amount]')
 const genButton = document.querySelector('[data-generate]')
-
+const resultContainer = document.querySelector('[data-output]')
 function random(num){
     return Math.floor(Math.random() * num)
 }
@@ -12,12 +12,24 @@ function random(num){
     genButton.addEventListener('click', e => {
         e.preventDefault()
     })
-    //genButton.addEventListener('click', displayEmails)
+    genButton.addEventListener('click', () => {
+        displayEmails(inputAmount.value)
+    })
 
 })()
 
 function displayEmails(x){
-    
+    let output = [genEmails(x)]
+    for (let i = 0; i < x; i++){
+        newResult(output[0][i])
+    }
+}
+function newResult(result){
+    //adds result into a new div
+    let newDiv = document.createElement('div')
+    resultContainer.appendChild(newDiv)
+    newDiv.textContent = result
+
 }
 function randomValues(num){
     let output = ''
@@ -26,4 +38,13 @@ function randomValues(num){
         output += values[random(36)]
     }
     return output
+}
+function genEmails(num){
+    //outputs x random emails
+    let emails = []
+    
+    for (let i = 0; i < num; i++){
+        emails.push(`${randomValues(8)}@gmail.com`)
+    }
+    return emails
 }
