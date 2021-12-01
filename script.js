@@ -1,8 +1,9 @@
-const mainContainer = document.querySelector('[data-main-container]')
-const emailForm = document.querySelector('[data-gen-emails]')
+//const mainContainer = document.querySelector('[data-main-container]')
+//const emailForm = document.querySelector('[data-gen-emails]')
 const inputAmount = document.querySelector('[data-input-amount]')
 const genButton = document.querySelector('[data-generate]')
 const resultContainer = document.querySelector('[data-output]')
+const clearBtn = document.querySelector('[data-clear]')
 function random(num){
     return Math.floor(Math.random() * num)
 }
@@ -11,6 +12,9 @@ function random(num){
     genButton.addEventListener('click', e => {
         e.preventDefault()
         displayEmails(inputAmount.value)
+    })
+    clearBtn.addEventListener('click', () => {
+        resultContainer.textContent = ""
     })
 })()
 
