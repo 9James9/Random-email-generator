@@ -8,14 +8,10 @@ function random(num){
 }
 
 (function addListeners(){
-    //prevents page from refreshing when button is pressed
     genButton.addEventListener('click', e => {
         e.preventDefault()
-    })
-    genButton.addEventListener('click', () => {
         displayEmails(inputAmount.value)
     })
-
 })()
 
 function displayEmails(x){
@@ -42,7 +38,6 @@ function randomValues(num){
 function genEmails(num){
     //outputs x random emails
     let emails = []
-    
     for (let i = 0; i < num; i++){
         emails.push(`${randomValues(8)}@gmail.com`)
     }
