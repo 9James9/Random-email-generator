@@ -39,7 +39,29 @@ function genEmails(num){
     //outputs x random emails
     let emails = []
     for (let i = 0; i < num; i++){
-        emails.push(`${randomValues(8)}@gmail.com`)
+        emails.push(`${randomValues(8)}${randomAtValue()}`)
     }
     return emails
+}
+function randomAtValue(){
+    let choice = random(5)
+    let value = ""
+    switch(true) {
+        case choice == 0:
+            value += '@gmail.com'
+            break
+        case choice == 1:
+            value += '@hotmail.com'
+            break
+        case choice == 2:
+            value += '@AOL.com'
+            break
+        case choice == 3:
+            value += '@icloud.com'
+            break
+        case choice == 4:
+            value += '@gmail.com'
+            break
+    }
+    return value
 }
